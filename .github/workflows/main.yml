@@ -1,0 +1,14 @@
+name: Run Soul 50x
+
+on: [push]
+
+jobs:
+  soul:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        n: [1,2,3,4,5,6,7,8,9,10]
+    steps:
+      - uses: actions/checkout@v3
+      - run: gcc soul.c -o soul1 -lpthread
+      - run: sudo ./soul1 91.108.17.6 32003 200
